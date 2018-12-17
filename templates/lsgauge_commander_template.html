@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LS Gauge - Commander</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <b>You are the commander!</b>
+    <fieldset>
+      <legend>Current LS Gauge Data</legend>
+      Temperature: {{ data["temperature"] }}
+      <br>
+      Humidity: {{ data["humidity"] }}
+      <br>
+      Pressure: {{ data["pressure"] }}
+      <br>
+    </fieldset>
+    <fieldset>
+      <legend>New LS Gauge Data</legend>
+      <form method="POST">
+	<label for="new_temp">Enter new temperature (40-100 F)</label>
+	<input type="number" name="new_temperature" min="40" max="100" value={{ data["temperature"] }}>
+	<br>
+	<label for="new_humidity">Enter new humidity (0-100%)</label>
+	<input type="number" name="new_humidity" step="1" min="0" max="100" value={{ data["humidity"] }}>
+	<br>
+	<label for="new_pressure">Enter new pressure (28.0-31.0 inches Hg)</label>
+	<input type="number" name="new_pressure" step="0.1" min="28.0" max="31.0" value={{ data["pressure"] }}>
+	<br>
+	<input type="submit">
+      </form>
+    </fieldset>
+  </body>
+</html>
